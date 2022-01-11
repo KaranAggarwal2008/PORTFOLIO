@@ -7,35 +7,18 @@ import {
   AdMobBanner,
   PublisherBanner,
 } from "expo";
-
+import { NativeModules } from 'react-native';
+const { Yodo1MASAds } = NativeModules;
 const BANNER_ID = `ca-app-pub-1425926517331745/4139536433`;
 export default class MyWeb extends Component {
-  bannerError(){
-    <Text>Something Went Wrong Please try again later</Text>
-  }
-  adMobEvent(){
-    <Text>Something Went Wrong Please try again later</Text>
-  }
-  runPlusShowBanner(){
-    <View>
-    <AdMobBanner
-    bannerSize="fullBanner"
-    adUnitID={BANNER_ID}
-    didFailToReceiveAdWithError={this.bannerError}
-  />
-            <PublisherBanner
-          bannerSize="banner"
-          adUnitID={BANNER_ID}
-          didFailToReceiveAdWithError={this.bannerError}
-          admobDispatchAppEvent={this.adMobEvent}
-        />
-                  </View>
-  }
+
   render() {
     return (
 <ScrollView>
+Yodo1MASAds.initMasSdk()
+Yodo1MASAds.showBannerAds();
+Yodo1MASAds.showInterstitialAds();
   <View>
-<this.runPlusShowBanner />
       <WebView
       
         source={{ uri: 'https://karanaggarwal2008.github.io/Portofolio-for-amazon-app-store/' }}
